@@ -12,4 +12,6 @@
 - ELSE IF playerScore is greater than computerScore THAN 'player wins the game'
 - ELSE 'computer wins the game'
 
-
+- If click any of three button start play round and pick related value as player selection
+- display player selection and player score AND computer selection and computer score
+- When computer or player reaches score 5 THEN announce winner and show running score
