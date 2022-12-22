@@ -17,3 +17,5 @@
 - When computer or player reaches score 5 THEN announce winner and show running score
 
 - IF player score or computer score reach to 5 THEN announce the winner or tie and remove event listeners
+
+- IF player clicks Restart button reload the page and refresh scores

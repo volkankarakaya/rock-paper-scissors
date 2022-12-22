@@ -3,7 +3,9 @@ let playerSelectionText = document.getElementById("player-selection");
 let playerScoreText = document.getElementById("player-score");
 let computerSelectionText = document.getElementById("computer-selection");
 let computerScoreText = document.getElementById("computer-score");
+
 let announcement = document.querySelector(".announcement");
+let restartBtn = document.getElementById("restart-btn");
 
 buttons.forEach((btn) => btn.addEventListener("click", getPlayerChoice));
 
@@ -40,7 +42,6 @@ function playRound(playerSelection, computerSelection) {
   computerScoreText.innerText = computerScore;
   playerSelectionText.innerHTML = options[playerSelection].choice;
   computerSelectionText.innerHTML = computerSelection.choice;
-  
 
   if (playerSelection === computerSelection.value) {
     playerScore++;
@@ -57,8 +58,6 @@ function playRound(playerSelection, computerSelection) {
 
   checkWinner();
 }
-
-
 
 // keep score of 5 round, return user win if score is bigger else user lose
 
@@ -93,3 +92,7 @@ function checkWinner() {
     buttons.forEach((btn) => btn.removeEventListener("click", getPlayerChoice));
   }
 }
+
+restartBtn.addEventListener('click', function () {
+  location.reload();
+});
