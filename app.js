@@ -1,3 +1,12 @@
+const buttons = document.querySelectorAll(".btn");
+let playerSelectionText = document.getElementById("player-selection");
+let playerScoreText = document.getElementById("player-score");
+let computerSelectionText = document.getElementById("computer-selection");
+let computerScoreText = document.getElementById("computer-score");
+let announcement = document.querySelector(".announcement");
+
+buttons.forEach((btn) => btn.addEventListener("click", getPlayerChoice));
+
 // get coumputer choice
 const options = [
   { choice: "Rock", value: 0 },
@@ -7,8 +16,8 @@ const options = [
 let playerScore = 0;
 let computerScore = 0;
 
-let computerSelection
-let playerSelection
+let computerSelection;
+let playerSelection;
 
 // console.log(computerSelection.value, playerSelection)
 
@@ -18,41 +27,69 @@ function getComputerSelection() {
 }
 
 // get user choice and make it case insensitive
-function getPlayerSelection() {
-  let playerSelection = prompt("Enter your selection: ", "");
-  return playerSelection;
-}
+// function getPlayerSelection() {
+//   let playerSelection = prompt("Enter your selection: ", "");
+//   return playerSelection;
+// }
 
 function playRound(playerSelection, computerSelection) {
   const playerWinCombo = ["0-2", "1-0", "2-1"];
   let roundWinCombo = `${playerSelection}-${computerSelection.value}`;
 
+  playerScoreText.innerText = playerScore;
+  computerScoreText.innerText = computerScore;
+  playerSelectionText.innerHTML = options[playerSelection].choice;
+  computerSelectionText.innerHTML = computerSelection.choice;
+  
+
   if (playerSelection === computerSelection.value) {
     playerScore++;
     computerScore++;
+    playerScoreText.innerText = playerScore;
+    computerScoreText.innerText = computerScore;
   } else if (playerWinCombo.includes(roundWinCombo)) {
     playerScore++;
+    playerScoreText.innerText = playerScore;
   } else {
     computerScore++;
+    computerScoreText.innerText = computerScore;
   }
-  console.log(playerScore,computerScore)
-  if(playerScore===5 || computerScore===5){
-    if(playerScore===computerScore){
-      console.log('game is tie!')
-    }else{
-      console.log((playerScore>computerScore)?'player won':'computer won')
-    }
-  }
+
+  checkWinner();
 }
+
+
 
 // keep score of 5 round, return user win if score is bigger else user lose
 
-function playGame(){
-  while(playerScore<5 && computerScore<5){
-    playRound(getPlayerSelection(),getComputerSelection())
-    // console.log(playerScore,computerScore)
-  }
+// function playGame() {
+//   while (playerScore < 5 && computerScore < 5) {
+//     playRound(getPlayerSelection(), getComputerSelection());
+//     // console.log(playerScore,computerScore)
+//   }
+// }
 
-  
+function getPlayerChoice(e) {
+  playerSelection = +e.target.id;
+  let computerSelection = getComputerSelection();
+  playRound(playerSelection, computerSelection);
 }
 
+function checkWinner() {
+  if (playerScore === 5 || computerScore === 5) {
+    if (playerScore === computerScore) {
+      let para = document.createElement("p");
+      para.textContent = "Game is tie!";
+      announcement.appendChild(para);
+    } else {
+      let para = document.createElement("p");
+      para.textContent =
+        playerScore > computerScore
+          ? "Player has won the game!"
+          : "computer has won the game!";
+      announcement.appendChild(para);
+    }
+
+    buttons.forEach((btn) => btn.removeEventListener("click", getPlayerChoice));
+  }
+}

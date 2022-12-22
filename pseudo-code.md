@@ -15,3 +15,5 @@
 - If click any of three button start play round and pick related value as player selection
 - display player selection and player score AND computer selection and computer score
 - When computer or player reaches score 5 THEN announce winner and show running score
+
+- IF player score or computer score reach to 5 THEN announce the winner or tie and remove event listeners
