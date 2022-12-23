@@ -4,7 +4,7 @@ let playerScoreText = document.getElementById("player-score");
 let computerSelectionText = document.getElementById("computer-selection");
 let computerScoreText = document.getElementById("computer-score");
 
-let announcement = document.querySelector(".announcement");
+let announcement = document.querySelector("#notification");
 let restartBtn = document.getElementById("restart-btn");
 
 buttons.forEach((btn) => btn.addEventListener("click", getPlayerChoice));

@@ -1,6 +1,7 @@
 body{
     max-width: 1400px;
     margin:auto;
+    background-color: blanchedalmond;
 }
 h1{
     text-align: center;
@@ -13,7 +14,7 @@ h3{
 }
 
 .players{
-    border:3px solid salmon;
+    
     display: flex;
     justify-content: center;
     margin: 48px;
@@ -24,11 +25,13 @@ h3{
 .computer-container{
     display: flex;
     flex-direction: column;
-    border: 3px solid green;
+    border: 3px solid rosybrown;
     width: 300px;
     justify-content: center;
     align-items: center;
     margin: 0 32px;
+    background-color: lightgoldenrodyellow;
+    border-radius: 8px;
 }
 
 .btn-container{
@@ -51,4 +54,44 @@ h3{
     display: flex;
     justify-content: center;
     margin: 64px;
+}
+
+#computer-selection, #player-selection{
+    display: flex;
+    background-color: #94544A;
+    color:aliceblue;
+    width: 100px;
+    height: 40px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+}
+
+#computer-score, #player-score{
+    display: flex;
+    border-radius: 8px;
+    width: 100px;
+    height: 40px;
+    justify-content: center;
+    align-items: center;
+    background-color: #FFB3C3;
+    
+    
+}
+
+#notification{
+    border: 3px solid saddlebrown;
+    width: 320px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #ED9B82;
+    border-radius: 8px;
+}
+
+button{
+    background-color: #E6CFD4 ;
+    
+    
 }
