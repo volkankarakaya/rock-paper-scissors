@@ -19,3 +19,9 @@
 - IF player score or computer score reach to 5 THEN announce the winner or tie and remove event listeners
 
 - IF player clicks Restart button reload the page and refresh scores
+
+- round results:
+- IF player wins the round show green color. MESSAGE: You Win! ... beats ...!
+- IF computer wins the round show red color. MESSAGE: YOu Lose! ... beats ...!
+- IF game is tie THEN show blue color. MESSAGE:Tie Game
+- update notification div with the relevant mesage after playRound
