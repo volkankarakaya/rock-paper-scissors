@@ -48,15 +48,20 @@ function playRound(playerSelection, computerSelection) {
     computerScore++;
     playerScoreText.innerText = playerScore;
     computerScoreText.innerText = computerScore;
-    announcement.innerText = `Tie Game! ${options[playerSelection].choice} and ${computerSelection.choice}`
+    announcement.innerText = `Tie Game! ${options[playerSelection].choice} and ${computerSelection.choice}`;
+    announcement.style.color = "blue";
   } else if (playerWinCombo.includes(roundWinCombo)) {
     playerScore++;
     playerScoreText.innerText = playerScore;
-    announcement.innerText = `You Win! ${options[playerSelection].choice} beats ${computerSelection.choice}`
+    announcement.innerText = `You Win! ${options[playerSelection].choice} beats ${computerSelection.choice}`;
+    announcement.style.color = "green";
+
   } else {
     computerScore++;
     computerScoreText.innerText = computerScore;
-    announcement.innerText = `You Lose! ${computerSelection.choice} beats ${options[playerSelection].choice}`
+    announcement.innerText = `You Lose! ${computerSelection.choice} beats ${options[playerSelection].choice}`;
+    announcement.style.color = "red";
+
   }
 
   checkWinner();
@@ -88,6 +93,7 @@ function checkWinner() {
         playerScore > computerScore
           ? "Player has won the game!"
           : "computer has won the game!";
+      announcement.style.color = '#f3f3f3'
     }
 
     buttons.forEach((btn) => btn.removeEventListener("click", getPlayerChoice));
